@@ -1,103 +1,3 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
-// import { useState } from "react";
-
-// export default function App() {
-//   const [selectedDate, setSelectedDate] = useState("");
-//   const [modalOpen, setModalOpen] = useState(false);
-//   const [modalText, setModalText] = useState("");
-
-//   // Отправка POST-запроса на Django
-//   const sendRequest = async () => {
-//     try {
-//       const response = await fetch("http://127.0.0.1:8000/api/load/", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({ date: selectedDate }),
-//       });
-
-//       const data = await response.json();
-
-//       // Текст, полученный от Django
-//       setModalText(data.message);
-//     } catch (error) {
-//       setModalText("Ошибка соединения с сервером");
-//     }
-
-//     setModalOpen(true); // Открыть модальное окно
-//   };
-
-//   const handleClose = () => setModalOpen(false);
-
-//   return (
-//     <div style={styles.page}>
-//       <div style={styles.card}>
-//         <h1 style={styles.title}>Выбор даты</h1>
-
-//         <input
-//           type="date"
-//           value={selectedDate}
-//           onChange={(e) => setSelectedDate(e.target.value)}
-//           style={styles.input}
-//         />
-
-//         <button type="button" onClick={sendRequest} style={styles.button}>
-//           Выгрузить
-//         </button>
-//       </div>
-
-//       {modalOpen && (
-//         <div style={styles.overlay} onClick={handleClose}>
-//           <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
-//             <p style={{ margin: 0 }}>{modalText}</p>
-
-//             <div style={{ marginTop: 16, textAlign: "right" }}>
-//               <button onClick={handleClose} style={styles.modalButton}>
-//                 Закрыть
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-
 import { useState } from "react";
 
 export default function App() {
@@ -119,7 +19,7 @@ export default function App() {
       });
 
       if (!response.ok) {
-        setModalText(/*"Ошибка на сервере"*/ "Дата не выбрана");
+        setModalText("Ошибка на сервере");
         setModalOpen(true);
         return;
       }

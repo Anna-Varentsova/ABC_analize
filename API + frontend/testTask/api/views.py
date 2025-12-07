@@ -29,7 +29,6 @@ def load_data(request):     #возвращает ответ для фронте
 def analyze_data(date):     # возвращает список из сортированных данных
     url = settings.API_URL.format(date=date)
     response = requests.get(url, headers={"Authorization": f"Bearer {settings.API_KEY}"})
-    # try:
     json_data = response.json()  # список из словарей
     summed = defaultdict(lambda: {"sum": 0, "subject": None})
     for row in json_data:
